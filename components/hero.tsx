@@ -1,101 +1,193 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { ArrowRight, Shield } from "lucide-react"
+import { useState, useEffect, useCallback } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
 
+const slides = [
+  {
+    image: "/images/hero-bg.jpg",
+    heading: "We'll help you navigate ever-changing business",
+    description:
+      "We architect, implement, manage and secure IT solutions that maximize the value of technology today and accelerate tomorrow.",
+    cta: "Contact us",
+    ctaHref: "#contact",
+  },
+  {
+    image: "/images/hero-slide-2.jpg",
+    heading: "Secure Your Future with DM Systems",
+    description:
+      "Customized cybersecurity and IT solutions designed to protect every area of your business. From perimeter defense to endpoint security.",
+    cta: "Get a Quote",
+    ctaHref: "#contact",
+  },
+  {
+    image: "/images/hero-slide-3.jpg",
+    heading: "Enterprise-Grade Protection for Your Business",
+    description:
+      "24/7 security monitoring, threat detection, and incident response. Our team ensures your infrastructure stays protected around the clock.",
+    cta: "Our Services",
+    ctaHref: "#services",
+  },
+]
+
+const slideVariants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? "100%" : "-100%",
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+  },
+  exit: (direction: number) => ({
+    x: direction > 0 ? "-100%" : "100%",
+    opacity: 0,
+  }),
+}
+
+const textVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (delay: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, delay, ease: "easeOut" },
+  }),
+}
+
 export function Hero() {
+  const [[current, direction], setCurrent] = useState([0, 0])
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+
+  const paginate = useCallback(
+    (newDirection: number) => {
+      const nextIndex =
+        (current + newDirection + slides.length) % slides.length
+      setCurrent([nextIndex, newDirection])
+    },
+    [current]
+  )
+
+  useEffect(() => {
+    if (!isAutoPlaying) return
+    const interval = setInterval(() => paginate(1), 6000)
+    return () => clearInterval(interval)
+  }, [isAutoPlaying, paginate])
+
+  const slide = slides[current]
+
   return (
-    <section className="relative flex min-h-[90vh] items-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/hero-bg.jpg"
-          alt=""
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-[#0F2B46]/85 dark:bg-[#0A1929]/90" />
-      </div>
+    <section
+      className="relative h-screen w-full overflow-hidden"
+      onMouseEnter={() => setIsAutoPlaying(false)}
+      onMouseLeave={() => setIsAutoPlaying(true)}
+    >
+      {/* Background slides */}
+      <AnimatePresence initial={false} custom={direction}>
+        <motion.div
+          key={current}
+          custom={direction}
+          variants={slideVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={slide.image}
+            alt=""
+            fill
+            className="object-cover"
+            priority={current === 0}
+          />
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-[#0F2B46]/70" />
+        </motion.div>
+      </AnimatePresence>
 
-      {/* Floating accent shapes */}
-      <motion.div
-        className="absolute right-[10%] top-[20%] h-64 w-64 rounded-full bg-[#1A73E8]/10 blur-3xl"
-        animate={{ y: [0, -20, 0], scale: [1, 1.05, 1] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute left-[5%] bottom-[15%] h-48 w-48 rounded-full bg-[#1A73E8]/8 blur-2xl"
-        animate={{ y: [0, 15, 0], scale: [1, 0.95, 1] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-32 lg:px-8">
-        <div className="max-w-3xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white/80 backdrop-blur-sm"
-          >
-            <Shield className="h-4 w-4 text-[#4DA3FF]" />
-            Trusted by 500+ businesses worldwide
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-balance text-4xl font-bold leading-tight tracking-tight text-white font-mono md:text-5xl lg:text-6xl"
-          >
-            Secure Your Future with{" "}
-            <span className="text-[#4DA3FF]">DM Systems</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-white/70"
-          >
-            Customized cybersecurity and IT solutions designed to protect every
-            area of your business. From perimeter defense to endpoint security,
-            we deliver enterprise-grade protection.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45 }}
-            className="mt-10 flex flex-col gap-4 sm:flex-row"
-          >
-            <Button
-              asChild
-              size="lg"
-              className="h-12 bg-[#1A73E8] px-8 text-base font-semibold text-white hover:bg-[#1565C0]"
+      {/* Content */}
+      <div className="relative z-10 flex h-full items-center">
+        <div className="mx-auto w-full max-w-7xl px-4 lg:px-8">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              className="max-w-3xl lg:ml-auto lg:text-right"
             >
-              <Link href="#contact">
-                Get Free Cyber Security Consultation
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="h-12 border-white/30 bg-white/5 px-8 text-base font-semibold text-white backdrop-blur-sm hover:bg-white/10 hover:text-white"
-            >
-              <Link href="#services">Our Services</Link>
-            </Button>
-          </motion.div>
+              <motion.h1
+                custom={0.1}
+                variants={textVariants}
+                className="text-balance text-4xl font-bold leading-tight text-white font-mono md:text-5xl lg:text-6xl xl:text-7xl"
+              >
+                {slide.heading}
+              </motion.h1>
+
+              <motion.p
+                custom={0.35}
+                variants={textVariants}
+                className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-white/80 md:text-lg lg:ml-auto"
+              >
+                {slide.description}
+              </motion.p>
+
+              <motion.div
+                custom={0.55}
+                variants={textVariants}
+                className="mt-10 flex gap-4 lg:justify-end"
+              >
+                <Button
+                  asChild
+                  size="lg"
+                  className="h-13 bg-[#1A73E8] px-10 text-base font-semibold text-white hover:bg-[#1565C0]"
+                >
+                  <Link href={slide.ctaHref}>{slide.cta}</Link>
+                </Button>
+              </motion.div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
 
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
+      {/* Prev / Next arrows */}
+      <button
+        onClick={() => paginate(-1)}
+        className="absolute left-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-all hover:bg-white/25 md:left-8"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="h-6 w-6" />
+      </button>
+      <button
+        onClick={() => paginate(1)}
+        className="absolute right-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-all hover:bg-white/25 md:right-8"
+        aria-label="Next slide"
+      >
+        <ChevronRight className="h-6 w-6" />
+      </button>
+
+      {/* Slide indicators */}
+      <div className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 gap-2.5">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrent([index, index > current ? 1 : -1])}
+            className={`h-2.5 rounded-full transition-all duration-300 ${
+              index === current
+                ? "w-10 bg-[#1A73E8]"
+                : "w-2.5 bg-white/50 hover:bg-white/70"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Bottom gradient */}
+      <div className="absolute bottom-0 left-0 right-0 z-10 h-32 bg-gradient-to-t from-white to-transparent" />
     </section>
   )
 }
