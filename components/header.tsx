@@ -95,9 +95,7 @@ function TopInfoBar() {
 function LogoSection() {
   return (
     <div className="flex items-center gap-3">
-      <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#1A73E8] bg-white shadow-md">
-        <Shield className="h-6 w-6 text-[#1A73E8]" />
-      </div>
+      <img src="/logo.jpg" alt="DM Systems Logo" className="h-12 w-12  border-2  bg-white shadow-md object-cover" />
       <div>
         <span className="text-xl font-bold tracking-tight text-[#0F2B46] font-mono">
           DM Systems
@@ -132,24 +130,20 @@ export function Header() {
       >
         <TopInfoBar />
 
-        <div className="bg-white/95 backdrop-blur-sm">
+        <div className="bg-white/0 ">
           <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
             {/* Large logo in circular container */}
             <div className="relative">
-              <div className="flex h-24 w-24 items-center justify-center rounded-full border-[3px] border-[#1A73E8]/30 bg-white shadow-lg lg:h-28 lg:w-28">
-                <div className="flex flex-col items-center">
-                  <Shield className="h-8 w-8 text-[#1A73E8] lg:h-10 lg:w-10" />
-                  <span className="mt-1 text-xs font-bold text-[#0F2B46] font-mono lg:text-sm">
-                    DM Systems
-                  </span>
-                </div>
+              <div className="flex h-14 w-14 items-center justify-center  bg-white shadow-lg lg:h-16 lg:w-16   overflow-hidden">
+                <img src="/logo.jpg" alt="DM Systems Logo" className=" object-cover w-full h-full" />
+           
               </div>
             </div>
 
             {/* Pill-shaped navigation bar */}
             <div className="hidden lg:block">
               <nav
-                className="flex items-center gap-0 rounded-full bg-[#1A73E8] px-2 py-3 shadow-lg"
+                className="flex items-center gap-0 rounded-full bg-white px-2 py-3 shadow-lg"
                 role="navigation"
                 aria-label="Main navigation"
               >
@@ -162,7 +156,7 @@ export function Header() {
                       onMouseLeave={() => setMegaMenuOpen(false)}
                     >
                       <button
-                        className="flex items-center gap-1 px-5 py-1.5 text-sm font-semibold text-white transition-colors hover:text-white/80"
+                        className="flex items-center gap-1 px-5 py-1.5 text-md font-semibold text-[#0F2B46] transition-colors hover:text-[#1A73E8]"
                         aria-expanded={megaMenuOpen}
                         aria-haspopup="true"
                       >
@@ -180,7 +174,7 @@ export function Header() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 8 }}
                             transition={{ duration: 0.2 }}
-                            className="absolute left-1/2 top-full w-[520px] -translate-x-1/2 pt-4"
+                            className="absolute left-1/2 top-full w-130 -translate-x-1/2 pt-4"
                           >
                             <div className="rounded-xl border border-[#E2E8F0] bg-white p-4 shadow-xl">
                               <div className="mb-3 px-2">
@@ -218,9 +212,9 @@ export function Header() {
                     <Link
                       key={link.name}
                       href={link.href}
-                      className="px-5 py-1.5 text-sm font-semibold text-white transition-colors hover:text-white/80"
+                      className="px-5 py-1.5 text-md font-semibold text-[#0F2B46] transition-colors hover:text-[#1A73E8]"
                     >
-                      {link.name} +
+                      {link.name}
                     </Link>
                   )
                 )}
@@ -244,7 +238,7 @@ export function Header() {
         transition={{ duration: 0.35, ease: "easeInOut" }}
         className="fixed top-0 left-0 right-0 z-50 border-b border-[#E2E8F0] bg-white/98 shadow-md backdrop-blur-md"
       >
-        <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 lg:px-8">
+        <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 lg:px-8">
           <Link href="/" className="flex items-center gap-2.5">
             <LogoSection />
           </Link>
@@ -263,7 +257,7 @@ export function Header() {
                   onMouseLeave={() => setMegaMenuOpen(false)}
                 >
                   <button
-                    className="group relative flex items-center gap-1 px-4 py-2 text-sm font-semibold text-[#0F2B46] transition-colors hover:text-[#1A73E8]"
+                    className="group relative flex items-center gap-1 px-4 py-2 text-md font-semibold text-[#0F2B46] transition-colors hover:text-[#1A73E8]"
                     aria-expanded={megaMenuOpen}
                     aria-haspopup="true"
                   >
@@ -282,7 +276,7 @@ export function Header() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 8 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute left-1/2 top-full w-[520px] -translate-x-1/2 pt-2"
+                        className="absolute left-1/2 top-full w-130 -translate-x-1/2 pt-2"
                       >
                         <div className="rounded-xl border border-[#E2E8F0] bg-white p-4 shadow-xl">
                           <div className="mb-3 px-2">
@@ -320,7 +314,7 @@ export function Header() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="group relative px-4 py-2 text-sm font-semibold text-[#0F2B46] transition-colors hover:text-[#1A73E8]"
+                  className="group relative px-4 py-2 text-md font-semibold text-[#0F2B46] transition-colors hover:text-[#1A73E8]"
                 >
                   {link.name}
                   <span className="absolute bottom-0 left-4 right-4 h-0.5 origin-left scale-x-0 bg-[#1A73E8] transition-transform duration-300 group-hover:scale-x-100" />

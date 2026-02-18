@@ -3,6 +3,9 @@ import { Inter, Space_Grotesk } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
+import { Header } from '@/components/header'
+import { Footer } from '@/components/footer'
+
 
 const inter = Inter({
   subsets: ['latin'],
@@ -36,8 +39,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Header/>
           {children}
+          <Footer/>
         </ThemeProvider>
+        
         <Analytics />
       </body>
     </html>

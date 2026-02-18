@@ -106,7 +106,7 @@ export function About() {
           >
             <div className="relative mx-auto max-w-md lg:max-w-none">
               {/* Main circular image */}
-              <div className="relative mx-auto aspect-square w-full max-w-[420px] overflow-hidden rounded-full border-4 border-[#1A73E8]/20">
+              <div className="relative mx-auto aspect-square w-full max-w-105 overflow-hidden rounded-full border-4 border-[#1A73E8]/20">
                 <Image
                   src="/images/about-company.jpg"
                   alt="Professional team meeting in office"

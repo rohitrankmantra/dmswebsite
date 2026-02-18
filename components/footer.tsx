@@ -24,12 +24,12 @@ const officialLinks = [
 ]
 
 const galleryImages = [
-  "/images/service-backup.jpg",
-  "/images/service-voip.jpg",
-  "/images/service-consulting.jpg",
-  "/images/service-it.jpg",
-  "/images/connect-1.jpg",
-  "/images/connect-2.jpg",
+  "https://thumbs.dreamstime.com/b/cybersecurity-discussion-face-mask-people-server-room-backup-team-technician-cloud-engineer-network-hosting-400078533.jpg",
+  "https://assets.technologyadvice.com/uploads/2024/03/AdobeStock-206658266.jpeg",
+  "https://thumbs.dreamstime.com/b/diverse-business-team-collaborating-cyber-security-strategies-laptops-digital-graphics-table-to-enhance-data-engages-406240614.jpg",
+  "https://thumbs.dreamstime.com/b/network-security-system-personal-data-information-tablet-cyber-technology-services-cybersecurity-business-management-434547906.jpg",
+  "https://thumbs.dreamstime.com/b/digital-cyberspace-particles-data-network-connections-future-technology-abstract-background-concept-177798617.jpg",
+  "https://thumbs.dreamstime.com/b/abstract-blue-background-depicting-network-connectivity-tech-digital-design-abstract-blue-background-depicting-356910705.jpg",
 ]
 
 const socials = [
@@ -41,23 +41,27 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#0A1929] text-white">
-      <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
+    <footer className="relative overflow-hidden text-white">
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-100"
+        style={{ 
+          backgroundImage: "url('https://thumbs.dreamstime.com/b/digital-cyberspace-particles-data-network-connections-future-technology-abstract-background-concept-177798617.jpg')" 
+        }} 
+      />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-[#0A1929]/75" />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
             <Link href="/" className="mb-5 inline-flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#1A73E8]">
-                <Shield className="h-4 w-4 text-white" />
+              <div className="flex h-16 w-16 items-center justify-center bg-[#1A73E8] overflow-hidden">
+                <img src="/logo.jpg" alt="DM Systems Logo" className="h-full w-full object-cover" />
               </div>
-              <span
-                className="text-lg font-bold tracking-tight text-white"
-                style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
-              >
-                DM Systems
-              </span>
             </Link>
-            <p className="mb-6 text-sm leading-relaxed text-white/60">
+            <p className="mb-6 text-sm leading-relaxed text-white">
               We provide customized cybersecurity and IT solutions to protect
               your business. Our expertise spans perimeter security, email
               security, endpoint solutions, and comprehensive security audits.
@@ -68,7 +72,7 @@ export function Footer() {
                   key={social.label}
                   href="#"
                   aria-label={social.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-white/70 transition-colors hover:bg-[#1A73E8] hover:text-white"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-white transition-colors hover:bg-[#1A73E8] hover:text-white"
                 >
                   <social.icon className="h-4 w-4" />
                 </a>
@@ -84,7 +88,7 @@ export function Footer() {
             >
               Newsletter
             </h3>
-            <p className="mb-5 text-sm leading-relaxed text-white/60">
+            <p className="mb-5 text-sm leading-relaxed text-white">
               Subscribe to our newsletter for the latest cybersecurity insights,
               IT tips, and company updates.
             </p>
@@ -138,7 +142,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/60 transition-colors hover:text-[#1A73E8]"
+                    className="text-sm text-white transition-colors hover:text-[#1A73E8]"
                   >
                     {link.name}
                   </Link>
@@ -175,7 +179,7 @@ export function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10">
+      <div className="relative z-10 border-t border-white/10">
         <div className="mx-auto max-w-7xl px-4 py-5 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
             <p className="text-sm text-white/50">

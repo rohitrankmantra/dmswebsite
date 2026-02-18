@@ -43,7 +43,7 @@ export function Features() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   return (
-    <section className="relative -mt-20 z-20 pb-24 lg:pb-32" ref={ref} id="features">
+    <section className="relative -mt-20 z-20 md:pb-0 pb-12" ref={ref} id="features">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="grid gap-0 md:grid-cols-2 lg:grid-cols-4">
           {features.map((feature, index) => {
@@ -100,16 +100,7 @@ export function Features() {
                   {feature.description}
                 </p>
 
-                <Link
-                  href="#services"
-                  className={`mt-auto inline-flex items-center rounded-md border px-6 py-2.5 text-sm font-semibold transition-all duration-300 ${
-                    isActive
-                      ? "border-white bg-white text-[#1A73E8] hover:bg-white/90"
-                      : "border-[#1A73E8] text-[#1A73E8] hover:bg-[#1A73E8] hover:text-white"
-                  }`}
-                >
-                  Read more
-                </Link>
+              
               </motion.div>
             )
           })}
