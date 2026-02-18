@@ -2,11 +2,13 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef, useEffect, useState } from "react"
+import { Users, Award, FolderCheck, MessageSquare } from "lucide-react"
 
 const stats = [
-  { label: "UTMs Deployed", value: 1200, suffix: "+" },
-  { label: "Customers Served", value: 500, suffix: "+" },
-  { label: "Users Protected", value: 50000, suffix: "+" },
+  { icon: Users, label: "Team members", value: 105, suffix: "+" },
+  { icon: Award, label: "Winning awards", value: 15, suffix: "+" },
+  { icon: FolderCheck, label: "Completed project", value: 10, suffix: "k+" },
+  { icon: MessageSquare, label: "Client's reviews", value: 850, suffix: "+" },
 ]
 
 function AnimatedCounter({
@@ -53,60 +55,44 @@ export function Stats() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section
-      ref={ref}
-      className="relative overflow-hidden bg-[#0F2B46] py-20 lg:py-24 dark:bg-[#0A1929]"
-    >
-      {/* Subtle pattern */}
-      <div className="absolute inset-0 opacity-5">
+    <section ref={ref} className="relative overflow-hidden bg-[#1A73E8] py-16 lg:py-20">
+      {/* Subtle diagonal pattern */}
+      <div className="absolute inset-0 opacity-10">
         <div
           className="h-full w-full"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-            backgroundSize: "40px 40px",
+              "repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 36px)",
           }}
         />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="mb-14 text-center"
-        >
-          <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-[#4DA3FF]">
-            The Numbers Speak
-          </p>
-          <h2 className="text-balance text-3xl font-bold tracking-tight text-white font-mono md:text-4xl">
-            Average data breach cost:{" "}
-            <span className="text-[#4DA3FF]">$3.86 million</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-white/60">
-            {"Don't become a statistic. Our proven track record demonstrates our commitment to keeping businesses secure."}
-          </p>
-        </motion.div>
-
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-2 gap-8 lg:grid-cols-4 lg:gap-0">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="text-center"
+              transition={{ duration: 0.5, delay: index * 0.12 }}
+              className={`flex flex-col items-center text-center ${
+                index < stats.length - 1 ? "lg:border-r lg:border-white/20" : ""
+              }`}
             >
-              <div className="mb-2 text-4xl font-bold text-white font-mono md:text-5xl">
+              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/20">
+                <stat.icon className="h-7 w-7 text-white" />
+              </div>
+              <div
+                className="mb-2 text-3xl font-bold text-white md:text-4xl"
+                style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+              >
                 <AnimatedCounter
                   target={stat.value}
                   suffix={stat.suffix}
                   inView={isInView}
                 />
               </div>
-              <p className="text-base font-medium text-white/60">
-                {stat.label}
-              </p>
+              <p className="text-sm font-medium text-white/80">{stat.label}</p>
             </motion.div>
           ))}
         </div>

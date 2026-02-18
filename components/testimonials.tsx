@@ -2,25 +2,28 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Quote } from "lucide-react"
+import { Quote, Star } from "lucide-react"
 
 export function Testimonials() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, { once: true, margin: "-80px" })
 
   return (
-    <section className="relative py-24 lg:py-32" ref={ref}>
+    <section className="py-20 lg:py-28" ref={ref}>
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="mb-16 text-center"
+          className="mb-14 text-center"
         >
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-accent">
-            Client Testimonials
+          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#1A73E8]">
+            Our Clients Testimonials
           </p>
-          <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground font-mono md:text-4xl">
+          <h2
+            className="text-3xl font-bold text-[#0F2B46] md:text-4xl"
+            style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+          >
             What Our Clients Say
           </h2>
         </motion.div>
@@ -31,23 +34,33 @@ export function Testimonials() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mx-auto max-w-3xl"
         >
-          <div className="relative rounded-2xl border border-border bg-card p-10 shadow-sm md:p-14">
-            {/* Quote icon */}
-            <div className="absolute -top-5 left-10 flex h-10 w-10 items-center justify-center rounded-lg bg-accent">
-              <Quote className="h-5 w-5 text-accent-foreground" />
+          <div className="relative rounded-2xl border border-[#E2E8F0] bg-white p-8 shadow-sm md:p-12">
+            {/* Large quote mark */}
+            <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-[#1A73E8]/10">
+              <Quote className="h-6 w-6 text-[#1A73E8]" />
             </div>
 
-            <blockquote className="mb-8 text-lg leading-relaxed text-foreground md:text-xl">
-              {'"You\'ve been right there with us through every step — from deploying security solutions across our offices to providing expert consulting services that truly made a difference. Your team\'s responsiveness and depth of knowledge have been invaluable."'}
+            {/* Stars */}
+            <div className="mb-4 flex gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  className="h-4 w-4 fill-[#F59E0B] text-[#F59E0B]"
+                />
+              ))}
+            </div>
+
+            <blockquote className="mb-8 text-base leading-relaxed text-[#5A7184] md:text-lg">
+              {"The support service is always run at the highest possible standard. All issues are resolved with a lot of care. All phone calls and emails are answered very professionally."}
             </blockquote>
 
             <div className="flex items-center gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-lg font-bold text-accent font-mono">
-                GP
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1A73E8] text-lg font-bold text-white">
+                KB
               </div>
               <div>
-                <p className="font-semibold text-foreground">Gaurav Pandey</p>
-                <p className="text-sm text-muted-foreground">Team IT</p>
+                <p className="font-bold text-[#0F2B46]">Krishna Bhatt</p>
+                <p className="text-sm text-[#5A7184]">IT Manager, FinanceCorp</p>
               </div>
             </div>
           </div>

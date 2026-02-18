@@ -10,51 +10,36 @@ import Link from "next/link"
 const slides = [
   {
     image: "/images/hero-bg.jpg",
-    heading: "We'll help you navigate ever-changing business",
+    heading: "Think Big. We make IT, possible!",
     description:
-      "We architect, implement, manage and secure IT solutions that maximize the value of technology today and accelerate tomorrow.",
+      "We observe the ongoing trends and analyze the upcoming technologies to transform the digital universe.",
     cta: "Contact us",
     ctaHref: "#contact",
   },
   {
     image: "/images/hero-slide-2.jpg",
-    heading: "Secure Your Future with DM Systems",
+    heading: "We'll help you navigate ever-changing business",
     description:
-      "Customized cybersecurity and IT solutions designed to protect every area of your business. From perimeter defense to endpoint security.",
+      "We architect, implement, manage and secure IT solutions that maximize the value of technology today and accelerate tomorrow.",
     cta: "Get a Quote",
     ctaHref: "#contact",
   },
   {
     image: "/images/hero-slide-3.jpg",
-    heading: "Enterprise-Grade Protection for Your Business",
+    heading: "Secure Your Future with DM Systems",
     description:
-      "24/7 security monitoring, threat detection, and incident response. Our team ensures your infrastructure stays protected around the clock.",
+      "Customized cybersecurity and IT solutions designed to protect every area of your business from perimeter defense to endpoint security.",
     cta: "Our Services",
     ctaHref: "#services",
   },
 ]
 
-const slideVariants = {
-  enter: (direction: number) => ({
-    x: direction > 0 ? "100%" : "-100%",
-    opacity: 0,
-  }),
-  center: {
-    x: 0,
-    opacity: 1,
-  },
-  exit: (direction: number) => ({
-    x: direction > 0 ? "-100%" : "100%",
-    opacity: 0,
-  }),
-}
-
 const textVariants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   visible: (delay: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, delay, ease: "easeOut" },
+    transition: { duration: 0.6, delay, ease: "easeOut" },
   }),
 }
 
@@ -81,20 +66,19 @@ export function Hero() {
 
   return (
     <section
-      className="relative h-screen w-full overflow-hidden"
+      className="relative w-full overflow-hidden"
+      style={{ height: "100vh", minHeight: "600px" }}
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
       {/* Background slides */}
-      <AnimatePresence initial={false} custom={direction}>
+      <AnimatePresence initial={false}>
         <motion.div
           key={current}
-          custom={direction}
-          variants={slideVariants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
           className="absolute inset-0"
         >
           <Image
@@ -104,8 +88,7 @@ export function Hero() {
             className="object-cover"
             priority={current === 0}
           />
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-[#0F2B46]/70" />
+          <div className="absolute inset-0 bg-[#0F2B46]/60" />
         </motion.div>
       </AnimatePresence>
 
@@ -118,33 +101,30 @@ export function Hero() {
               initial="hidden"
               animate="visible"
               exit="hidden"
-              className="max-w-3xl lg:ml-auto lg:text-right"
+              className="max-w-2xl"
             >
               <motion.h1
                 custom={0.1}
                 variants={textVariants}
-                className="text-balance text-4xl font-bold leading-tight text-white font-mono md:text-5xl lg:text-6xl xl:text-7xl"
+                className="text-balance text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
+                style={{ fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif" }}
               >
                 {slide.heading}
               </motion.h1>
 
               <motion.p
-                custom={0.35}
+                custom={0.3}
                 variants={textVariants}
-                className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-white/80 md:text-lg lg:ml-auto"
+                className="mt-6 max-w-lg text-pretty text-base leading-relaxed text-white/80 md:text-lg"
               >
                 {slide.description}
               </motion.p>
 
-              <motion.div
-                custom={0.55}
-                variants={textVariants}
-                className="mt-10 flex gap-4 lg:justify-end"
-              >
+              <motion.div custom={0.5} variants={textVariants} className="mt-8">
                 <Button
                   asChild
                   size="lg"
-                  className="h-13 bg-[#1A73E8] px-10 text-base font-semibold text-white hover:bg-[#1565C0]"
+                  className="h-12 rounded-md bg-[#1A73E8] px-8 text-base font-semibold text-white hover:bg-[#1565C0]"
                 >
                   <Link href={slide.ctaHref}>{slide.cta}</Link>
                 </Button>
@@ -157,37 +137,34 @@ export function Hero() {
       {/* Prev / Next arrows */}
       <button
         onClick={() => paginate(-1)}
-        className="absolute left-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-all hover:bg-white/25 md:left-8"
+        className="absolute left-3 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-sm transition-all hover:bg-white/25 md:left-6 lg:left-8"
         aria-label="Previous slide"
       >
-        <ChevronLeft className="h-6 w-6" />
+        <ChevronLeft className="h-5 w-5" />
       </button>
       <button
         onClick={() => paginate(1)}
-        className="absolute right-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-all hover:bg-white/25 md:right-8"
+        className="absolute right-3 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-sm transition-all hover:bg-white/25 md:right-6 lg:right-8"
         aria-label="Next slide"
       >
-        <ChevronRight className="h-6 w-6" />
+        <ChevronRight className="h-5 w-5" />
       </button>
 
       {/* Slide indicators */}
-      <div className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 gap-2.5">
+      <div className="absolute bottom-28 left-1/2 z-20 flex -translate-x-1/2 gap-2 sm:bottom-32">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrent([index, index > current ? 1 : -1])}
             className={`h-2.5 rounded-full transition-all duration-300 ${
               index === current
-                ? "w-10 bg-[#1A73E8]"
+                ? "w-8 bg-[#1A73E8]"
                 : "w-2.5 bg-white/50 hover:bg-white/70"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
-
-      {/* Bottom gradient */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 h-32 bg-gradient-to-t from-white to-transparent" />
     </section>
   )
 }
