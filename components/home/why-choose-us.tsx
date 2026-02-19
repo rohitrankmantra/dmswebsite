@@ -12,7 +12,7 @@ export function WhyChooseUs() {
   const isInView = useInView(ref, { once: true, margin: "-80px" })
 
   return (
-    <section id="why-us" className="bg-[#F4F7FA] py-20 lg:py-28" ref={ref}>
+    <section id="why-us" className="bg-linear-to-b from-[#F4F7FA] to-white py-20 lg:py-28" ref={ref}> {/* Enhanced background linear */}
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left - Image */}
@@ -22,7 +22,11 @@ export function WhyChooseUs() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="relative overflow-hidden rounded-2xl">
+            <motion.div 
+              className="relative overflow-hidden rounded-3xl shadow-xl border border-[#096DB5]/10" // Softer rounding and subtle border
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.4 }}
+            >
               <Image
                 src="/images/why-best.jpg"
                 alt="Professional team reviewing documents"
@@ -30,20 +34,25 @@ export function WhyChooseUs() {
                 height={500}
                 className="h-auto w-full object-cover"
               />
-              {/* Overlay card */}
-              <div className="absolute bottom-0 left-0 right-0 bg-[#1A73E8] p-6">
+              {/* Overlay card with slide up animation */}
+              <motion.div 
+                className="absolute bottom-0 left-0 right-0 bg-linear-to-r from-[#096DB5] to-[#074C8A] p-6 text-white"
+                initial={{ y: 50, opacity: 0 }}
+                animate={isInView ? { y: 0, opacity: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
                 <h3
-                  className="text-xl font-bold text-white"
+                  className="text-xl font-bold"
                   style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
                 >
                   Professional Highly Staffs
                 </h3>
-                <p className="mt-2 text-sm text-white/80">
+                <p className="mt-2 text-sm text-white/90">
                   We deploy the best professionals to ensure your IT solutions
                   are built solid, maintained right, and protected always.
                 </p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </motion.div>
 
           {/* Right - Content */}
@@ -52,7 +61,7 @@ export function WhyChooseUs() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#1A73E8]">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#096DB5]">
               Who We Are Best
             </p>
             <h2
@@ -60,19 +69,22 @@ export function WhyChooseUs() {
               style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
             >
               Our{" "}
-              <span className="text-[#1A73E8]">penetration</span> testing team
+              <span className="text-[#096DB5]">penetration</span> testing team
               uses an industry
             </h2>
-            <p className="mb-8 text-[#5A7184] leading-relaxed">
+            <p className="mb-8 text-[#5A7184] leading-relaxed text-base"> {/* Increased font size */}
               We provide the full spectrum of IT services and consulting for
               various industries including finance, healthcare, and technology
               sectors.
             </p>
 
             <div className="mb-8 grid gap-6 sm:grid-cols-2">
-              <div className="flex items-start gap-4">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#1A73E8]/10">
-                  <MonitorSmartphone className="h-7 w-7 text-[#1A73E8]" />
+              <motion.div 
+                className="flex items-start gap-4 p-4 rounded-xl bg-white shadow-sm border border-[#096DB5]/10 transition-all duration-300 hover:shadow-md hover:border-[#096DB5]/30" // Card styling for features
+                whileHover={{ y: -5 }}
+              >
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#096DB5]/10">
+                  <MonitorSmartphone className="h-7 w-7 text-[#096DB5]" />
                 </div>
                 <div>
                   <h4 className="mb-1 text-base font-bold text-[#0F2B46]">
@@ -83,11 +95,14 @@ export function WhyChooseUs() {
                     marketing and digital transformation.
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="flex items-start gap-4">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#1A73E8]/10">
-                  <Globe className="h-7 w-7 text-[#1A73E8]" />
+              <motion.div 
+                className="flex items-start gap-4 p-4 rounded-xl bg-white shadow-sm border border-[#096DB5]/10 transition-all duration-300 hover:shadow-md hover:border-[#096DB5]/30"
+                whileHover={{ y: -5 }}
+              >
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#096DB5]/10">
+                  <Globe className="h-7 w-7 text-[#096DB5]" />
                 </div>
                 <div>
                   <h4 className="mb-1 text-base font-bold text-[#0F2B46]">
@@ -98,16 +113,16 @@ export function WhyChooseUs() {
                     global markets.
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             <Button
               asChild
-              className="h-12 rounded-md bg-[#1A73E8] px-8 text-sm font-semibold text-white hover:bg-[#1565C0]"
+              className="h-12 rounded-md bg-[#096DB5] px-8 text-sm font-semibold text-white hover:bg-[#074C8A] transition-all duration-300" // Updated colors
             >
               <Link href="#about">
                 About us
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </Button>
           </motion.div>

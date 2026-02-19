@@ -137,14 +137,14 @@ export function Hero() {
       {/* Prev / Next arrows */}
       <button
         onClick={() => paginate(-1)}
-        className="absolute left-3 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-sm transition-all hover:bg-white/25 md:left-6 lg:left-8"
+        className="absolute left-3 top-1/2 z-20 hidden  md:flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-sm transition-all hover:bg-white/25 md:left-6 lg:left-8"
         aria-label="Previous slide"
       >
         <ChevronLeft className="h-5 w-5" />
       </button>
       <button
         onClick={() => paginate(1)}
-        className="absolute right-3 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-sm transition-all hover:bg-white/25 md:right-6 lg:right-8"
+        className="absolute right-3 top-1/2 z-20 hidden  md:flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-sm transition-all hover:bg-white/25 md:right-6 lg:right-8"
         aria-label="Next slide"
       >
         <ChevronRight className="h-5 w-5" />

@@ -5,6 +5,8 @@ import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import QueryForm from '@/components/QueryForm'
+import FloatingActions from '@/components/FloatingActions'
 
 
 const inter = Inter({
@@ -42,6 +44,10 @@ export default function RootLayout({
           <Header/>
           {children}
           <Footer/>
+          <QueryForm />
+          <FloatingActions />
+
+
         </ThemeProvider>
         
         <Analytics />

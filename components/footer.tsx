@@ -16,12 +16,14 @@ import {
 import { Button } from "@/components/ui/button"
 
 const officialLinks = [
-  { name: "About us", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Our Team", href: "#team" },
-  { name: "Careers", href: "#" },
-  { name: "Contact us", href: "#contact" },
+  { name: "Home", href: "/" },
+  { name: "Company", href: "/what-we-do" },
+  { name: "Solutions", href: "/product-offering" },
+  { name: "Credentials", href: "/awards" },
+  { name: "Training", href: "/training" },
+  { name: "Gallery", href: "/gallery" },
 ]
+
 
 const galleryImages = [
   "https://thumbs.dreamstime.com/b/cybersecurity-discussion-face-mask-people-server-room-backup-team-technician-cloud-engineer-network-hosting-400078533.jpg",
@@ -107,26 +109,40 @@ export function Footer() {
                 <Send className="h-4 w-4" />
               </Button>
             </form>
-            <div className="mt-6 flex flex-col gap-3">
-              <a
-                href="tel:+919876543210"
-                className="flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-white"
-              >
-                <Phone className="h-3.5 w-3.5 text-[#1A73E8]" />
-                +91 98765 43210
-              </a>
-              <a
-                href="mailto:info@dmsystems.in"
-                className="flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-white"
-              >
-                <Mail className="h-3.5 w-3.5 text-[#1A73E8]" />
-                info@dmsystems.in
-              </a>
-              <span className="flex items-center gap-2 text-sm text-white/60">
-                <MapPin className="h-3.5 w-3.5 text-[#1A73E8]" />
-                Bangalore, India
-              </span>
-            </div>
+        <div className="mt-6 flex flex-col gap-3">
+  <span className="flex items-start gap-2 text-sm text-white">
+    <MapPin className="mt-0.5 h-3.5 w-3.5 text-[#1A73E8]" />
+    <span>
+      E-2/7 & 8, 2nd Floor, Malviya Nagar, New Delhi – 110017 <br />
+      <span className="text-white">(Above VLCC Training Institute.)</span>
+    </span>
+  </span>
+
+  <a
+    href="tel:+911126691429"
+    className="flex items-center gap-2 text-sm text-white transition-colors hover:text-white"
+  >
+    <Phone className="h-3.5 w-3.5 text-[#1A73E8]" />
+    Tel: +91 011 26691429
+  </a>
+
+  <a
+    href="tel:+919999035340"
+    className="flex items-center gap-2 text-sm text-white transition-colors hover:text-white"
+  >
+    <Phone className="h-3.5 w-3.5 text-[#1A73E8]" />
+    Pallavi Bhardwaj: +91 99990 35340
+  </a>
+
+  <a
+    href="mailto:channels@dmsystems.in"
+    className="flex items-center gap-2 text-sm text-white transition-colors hover:text-white"
+  >
+    <Mail className="h-3.5 w-3.5 text-[#1A73E8]" />
+    channels@dmsystems.in
+  </a>
+</div>
+
           </div>
 
           {/* Official Info */}
