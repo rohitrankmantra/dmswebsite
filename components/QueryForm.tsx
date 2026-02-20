@@ -15,16 +15,19 @@ export default function QueryForm() {
 
   return (
     <>
-      {/* ✅ Old Website Style Side Button */}
       <button
         onClick={() => setOpen(true)}
-        className="fixed right-0 top-1/2 z-99 -translate-y-1/2 bg-[#074f8e] px-6 rounded-lg py-2 text-white shadow-xl  transition-colors"
-        style={{
-          writingMode: "vertical-rl",
-          textOrientation: "mixed",
-        }}
+        className="fixed right-0 top-1/2 z-50 hidden -translate-y-1/2 rounded-lg bg-[#074f8e] px-6 py-2 text-white shadow-xl transition-colors md:block"
+        style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}
       >
         Query Form
+      </button>
+      <button
+        onClick={() => setOpen(true)}
+        className="fixed left-4 bottom-28 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-[#074f8e] text-white shadow-xl md:hidden"
+        aria-label="Open Query Form"
+      >
+        ?
       </button>
 
       {/* Sliding Panel */}
@@ -37,7 +40,7 @@ export default function QueryForm() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 z-9998 bg-black/40 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm"
               onClick={() => setOpen(false)}
             />
 
@@ -47,7 +50,7 @@ export default function QueryForm() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed right-0 top-0 z-9999 h-full w-full max-w-md bg-white shadow-2xl lg:w-96"
+              className="fixed right-0 top-0 z-50 h-full w-full max-w-md bg-white shadow-2xl md:w-96"
             >
               {/* Header */}
               <div className="flex items-center justify-between border-b border-gray-200 bg-[#074f8e] px-6 py-4 text-white">

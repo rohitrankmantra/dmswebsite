@@ -66,8 +66,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative w-full overflow-hidden"
-      style={{ height: "100vh", minHeight: "600px" }}
+      className="relative w-full overflow-hidden min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh]"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
@@ -106,7 +105,7 @@ export function Hero() {
               <motion.h1
                 custom={0.1}
                 variants={textVariants}
-                className="text-balance text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
+                className="text-balance text-3xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl"
                 style={{ fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif" }}
               >
                 {slide.heading}
@@ -115,7 +114,7 @@ export function Hero() {
               <motion.p
                 custom={0.3}
                 variants={textVariants}
-                className="mt-6 max-w-lg text-pretty text-base leading-relaxed text-white/80 md:text-lg"
+                className="mt-4 max-w-lg text-pretty text-sm leading-relaxed text-white/80 md:mt-6 md:text-lg"
               >
                 {slide.description}
               </motion.p>
@@ -151,7 +150,7 @@ export function Hero() {
       </button>
 
       {/* Slide indicators */}
-      <div className="absolute bottom-28 left-1/2 z-20 flex -translate-x-1/2 gap-2 sm:bottom-32">
+      <div className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 gap-2 sm:bottom-12 md:bottom-20">
         {slides.map((_, index) => (
           <button
             key={index}

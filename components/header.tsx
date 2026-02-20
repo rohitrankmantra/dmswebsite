@@ -126,17 +126,17 @@ function TopInfoBar() {
 
 function LogoSection() {
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-2 sm:gap-3">
       <img
         src="/logo.jpg"
         alt="DM Systems Logo"
-        className="h-12 w-12 border-2 bg-white shadow-md object-cover"
+        className="h-10 w-10 sm:h-12 sm:w-12 border-2 bg-white shadow-md object-cover"
       />
       <div>
-        <span className="text-xl font-bold tracking-tight text-[#0F2B46] font-mono">
+        <span className="text-lg sm:text-xl font-bold tracking-tight text-[#0F2B46] font-mono">
           DM Systems
         </span>
-        <p className="text-[10px] leading-none text-[#5A7184]">
+        <p className="text-[9px] sm:text-[10px] leading-none text-[#5A7184]">
           Cybersecurity & IT Solutions
         </p>
       </div>
@@ -287,7 +287,7 @@ export function Header() {
         transition={{ duration: 0.35, ease: "easeInOut" }}
         className="fixed top-0 left-0 right-0 z-50 border-b border-[#E2E8F0] bg-white/98 shadow-md backdrop-blur-md"
       >
-        <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 lg:px-8">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-3 sm:px-4 lg:h-18 lg:px-8">
           <Link href="/" className="flex items-center gap-2.5">
             <LogoSection />
           </Link>
@@ -395,7 +395,7 @@ export function Header() {
 
             <Button
               asChild
-              className="hidden bg-[#1A73E8] text-sm font-semibold text-white hover:bg-[#1565C0] lg:inline-flex"
+              className="hidden bg-[#1A73E8] text-xs sm:text-sm font-semibold text-white hover:bg-[#1565C0] lg:inline-flex"
             >
               <Link href="#contact">GET A QUOTE</Link>
             </Button>
@@ -424,7 +424,7 @@ function MobileMenu() {
         </Button>
       </SheetTrigger>
 
-      <SheetContent side="right" className="w-80 bg-white">
+      <SheetContent side="right" className="w-72 sm:w-80 bg-white">
         
         {/* ✅ Logo Section */}
         <div className="flex items-center gap-3 border-b pb-1 py-5 px-4">
