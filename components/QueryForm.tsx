@@ -17,14 +17,14 @@ export default function QueryForm() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="fixed right-0 top-1/2 z-50 hidden -translate-y-1/2 rounded-lg bg-[#074f8e] px-6 py-2 text-white shadow-xl transition-colors md:block"
+        className="fixed right-0 top-[60%] z-30 hidden -translate-y-1/2 rounded-lg bg-[#074f8e] px-6 py-2 text-white shadow-xl transition-colors md:block"
         style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}
       >
         Query Form
       </button>
       <button
         onClick={() => setOpen(true)}
-        className="fixed left-4 bottom-28 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-[#074f8e] text-white shadow-xl md:hidden"
+        className="fixed left-4 bottom-24 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-[#074f8e] text-white shadow-xl md:hidden"
         aria-label="Open Query Form"
       >
         ?

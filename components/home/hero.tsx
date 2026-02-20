@@ -18,7 +18,7 @@ const slides = [
   },
   {
     image: "/images/hero-slide-2.jpg",
-    heading: "We'll help you navigate ever-changing business",
+    heading: "We'll  navigate ever-changing business",
     description:
       "We architect, implement, manage and secure IT solutions that maximize the value of technology today and accelerate tomorrow.",
     cta: "Get a Quote",
@@ -92,7 +92,7 @@ export function Hero() {
       </AnimatePresence>
 
       {/* Content */}
-      <div className="relative z-10 flex h-full items-center">
+      <div className="relative z-10 flex h-full items-center mt-24">
         <div className="mx-auto w-full max-w-7xl px-4 lg:px-8">
           <AnimatePresence mode="wait">
             <motion.div
@@ -100,7 +100,7 @@ export function Hero() {
               initial="hidden"
               animate="visible"
               exit="hidden"
-              className="max-w-2xl"
+              className="max-w-2xl mt-10 sm:mt-16 lg:mt-24"
             >
               <motion.h1
                 custom={0.1}

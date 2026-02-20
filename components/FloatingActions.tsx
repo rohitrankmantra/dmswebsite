@@ -6,7 +6,7 @@ import { FaWhatsapp } from "react-icons/fa"
 
 export default function FloatingActions() {
   return (
-    <div className="fixed right-4 bottom-16 z-40 flex flex-col gap-3">
+    <div className="fixed right-4 bottom-6 sm:bottom-10 z-30 flex flex-col gap-3">
       
       {/* WhatsApp */}
       <Link
