@@ -76,14 +76,14 @@ export default function ProductOfferingPage() {
           <div className="mt-24 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {solutions.map((item) => (
               <div key={item.title} className="group relative overflow-hidden rounded-xl bg-white shadow-md transition-all hover:-translate-y-2 hover:shadow-xl">
-                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                <div className="relative aspect-4/3 w-full overflow-hidden">
                   <Image
                     src={item.image}
                     alt={item.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
                   <div className="absolute bottom-0 left-0 p-6">
                     <h3 className="text-xl font-bold text-white leading-tight">
                       {item.title}

@@ -12,7 +12,7 @@ export function WhyChooseUs() {
   const isInView = useInView(ref, { once: true, margin: "-80px" })
 
   return (
-    <section id="why-us" className="bg-linear-to-b from-[#F4F7FA] to-white py-20 lg:py-28" ref={ref}> {/* Enhanced background linear */}
+    <section id="why-us" className="bg-linear-to-b from-[#F4F7FA] to-white py-20 lg:py-28" ref={ref}>
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left - Image */}

@@ -38,7 +38,7 @@ export function Services() {
   const isInView = useInView(ref, { once: true, margin: "-80px" })
 
   return (
-    <section id="services" className="py-20 lg:py-28 bg-linear-to-b from-white to-gray-50/50" ref={ref}> {/* Added subtle linear background */}
+    <section id="services" className="py-20 lg:py-28 bg-linear-to-b from-white to-gray-50/50" ref={ref}>
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

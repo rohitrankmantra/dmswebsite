@@ -25,21 +25,10 @@ import { Button } from "@/components/ui/button"
 import {
   Sheet,
   SheetContent,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
 
-const services = [
-  { title: "Perimeter Security", description: "Protect your network boundaries", icon: Shield, href: "#services" },
-  { title: "Email Security", description: "Secure your communications", icon: Mail, href: "#services" },
-  { title: "End Point Solutions", description: "Safeguard every device", icon: Monitor, href: "#services" },
-  { title: "Security Audits", description: "Comprehensive assessments", icon: ClipboardCheck, href: "#services" },
-  { title: "Data Continuity", description: "Disaster recovery solutions", icon: Server, href: "#services" },
-  { title: "Network Security", description: "Infrastructure protection", icon: Lock, href: "#services" },
-  { title: "Cloud Security", description: "Secure cloud deployments", icon: Globe, href: "#services" },
-  { title: "Compliance", description: "Regulatory compliance support", icon: FileSearch, href: "#services" },
-]
+ 
 
 // Yeh array ab tere old website ke exact menu se match karta hai
 const navLinks = [

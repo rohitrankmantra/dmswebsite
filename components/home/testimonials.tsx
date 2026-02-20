@@ -55,7 +55,7 @@ export function Testimonials() {
       {/* Background with subtle grid pattern */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Base light gradient */}
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white" /> */}
+        {/* <div className="absolute inset-0 bg-linear-to-b from-gray-50 to-white" /> */}
 
         {/* Grid pattern: lines + dots at intersections */}
         <div

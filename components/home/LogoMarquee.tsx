@@ -3,13 +3,13 @@
 import { motion } from "framer-motion"
 
 const logos = [
-  { name: "PineLabs", src: "https://dmsystems.in/wp-content/uploads/2020/03/pinelabs.png" },
-  { name: "Wave", src: "https://dmsystems.in/wp-content/uploads/2020/01/21.jpg" },
-  { name: "Paras Hospital", src: "https://dmsystems.in/wp-content/uploads/2020/01/26.jpg" },
-  { name: "Maruti", src: "https://dmsystems.in/wp-content/uploads/2020/03/maruti.png" },
-  { name: "ICGEB", src: "https://dmsystems.in/wp-content/uploads/2020/03/icgeb.png" },
-  { name: "Global Logic", src: "https://dmsystems.in/wp-content/uploads/2020/03/global.png" },
-  { name: "Tata Communication", src: "https://dmsystems.in/wp-content/uploads/2020/03/tata.png" },
+  { name: "PineLabs", src: "/home/logo3.png" },
+  { name: "Wave", src: "/home/logo2.jpg" },
+  { name: "Paras Hospital", src: "/home/logo1.jpg" },
+  { name: "Maruti", src: "/home/logo7.png" },
+  { name: "ICGEB", src: "/home/logo6.png" },
+  { name: "Global Logic", src: "/home/logo5.png" },
+  { name: "Tata Communication", src: "/home/logo4.png" },
 ]
 
 export default function LogoMarquee() {

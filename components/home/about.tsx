@@ -3,7 +3,7 @@
 import { useState, useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
-import { Play, Award, Target, Eye, Gem } from "lucide-react" // Added icons for tabs
+import { Award, Target, Eye, Gem } from "lucide-react"
 
 const tabs = [
   {
@@ -55,7 +55,7 @@ export function About() {
   const activeContent = tabs.find((t) => t.id === activeTab)
 
   return (
-    <section id="about" className="py-20 lg:py-28 bg-linear-to-b from-white to-gray-50/50" ref={ref}> {/* Added subtle section linear for uniqueness */}
+    <section id="about" className="py-20 lg:py-28 bg-linear-to-b from-white to-gray-50/50" ref={ref}>
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left column - text */}
@@ -141,7 +141,7 @@ export function About() {
             <div className="relative mx-auto max-w-md lg:max-w-none">
               {/* Main image with tilt hover */}
               <motion.div 
-                className="relative mx-auto aspect-square w-full max-w-105 overflow-hidden rounded-3xl border-4 border-[#096DB5]/20 shadow-xl" // Changed to softer round
+                className="relative mx-auto aspect-square w-full max-w-105 overflow-hidden rounded-3xl border-4 border-[#096DB5]/20 shadow-xl"
                 whileHover={{ rotate: 2, scale: 1.02 }}
                 transition={{ duration: 0.4 }}
               >

@@ -151,7 +151,7 @@ export default function AwardsPage() {
                 ))}
               </div>
             </div>
-            <div className="relative h-[400px] overflow-hidden rounded-2xl shadow-xl">
+            <div className="relative h-100 overflow-hidden rounded-2xl shadow-xl">
               <Image
                 src="/awards/award_credentials.jpg"
                 alt="Dell Sonicwall Award"
@@ -167,14 +167,14 @@ export default function AwardsPage() {
       <section className="bg-[#0F2B46] py-16 text-white lg:py-24">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-             <div className="relative h-[500px] overflow-hidden rounded-2xl shadow-2xl order-2 lg:order-1">
+             <div className="relative h-125 overflow-hidden rounded-2xl shadow-2xl order-2 lg:order-1">
               <Image
                 src="/awards/SophosAwards.jpg"
                 alt="Sophos Award"
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0F2B46] via-transparent to-transparent opacity-60" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#0F2B46] via-transparent to-transparent opacity-60" />
               <div className="absolute bottom-8 left-8 right-8">
                 <h3 className="text-2xl font-bold text-white">Cyberoam / Sophos Awards</h3>
                 <p className="mt-2 text-gray-300">Celebrating excellence in security solutions</p>

@@ -35,7 +35,7 @@ export function Achievements() {
           </p>
 
           <h2
-            className="mb-6 text-3xl font-bold leading-tight md:text-4xl lg:text-4.5xl"
+            className="mb-6 text-3xl font-bold leading-tight md:text-4xl lg:text-5xl"
             style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
           >
             Proud of Our <span className="text-[#a3d0ff]">Real Results</span>
