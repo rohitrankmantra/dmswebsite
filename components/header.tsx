@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
+import { cn } from "@/lib/utils"
 import {
   Menu,
   ChevronDown,
@@ -170,7 +171,7 @@ export function Header() {
         <TopInfoBar />
 
         <div className="bg-white/0">
-          <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
+          <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
             {/* Large logo in circular container */}
             <div className="relative">
               <div className="flex h-14 w-14 items-center justify-center bg-white shadow-lg lg:h-16 lg:w-16 overflow-hidden">
@@ -270,8 +271,14 @@ export function Header() {
               </nav>
             </div>
 
-            {/* Mobile trigger */}
-            <MobileMenu />
+            <Button
+              asChild
+              className="hidden bg-[#1A73E8] text-xs sm:text-sm font-semibold text-white hover:bg-[#1565C0] lg:inline-flex"
+            >
+              <Link href="#contact">GET A QUOTE</Link>
+            </Button>
+
+            <MobileMenu className="text-white" />
           </div>
         </div>
       </div>
@@ -287,7 +294,7 @@ export function Header() {
         transition={{ duration: 0.35, ease: "easeInOut" }}
         className="fixed top-0 left-0 right-0 z-50 border-b border-[#E2E8F0] bg-white/98 shadow-md backdrop-blur-md"
       >
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-3 sm:px-4 lg:h-18 lg:px-8">
+        <div className="mx-auto flex w-full h-16 max-w-7xl items-center justify-between px-3 sm:px-4 lg:h-18 lg:px-8">
           <Link href="/" className="flex items-center gap-2.5">
             <LogoSection />
           </Link>
@@ -400,7 +407,7 @@ export function Header() {
               <Link href="#contact">GET A QUOTE</Link>
             </Button>
 
-            <MobileMenu />
+            <MobileMenu className="text-white" />
           </div>
         </div>
       </motion.header>
@@ -408,7 +415,7 @@ export function Header() {
   )
 }
 
-function MobileMenu() {
+function MobileMenu({ className }: { className?: string }) {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
 
   return (
@@ -417,10 +424,10 @@ function MobileMenu() {
         <Button
           variant="ghost"
           size="icon"
-          className="lg:hidden text-[#0F2B46]"
+          className={cn("lg:hidden", className)}
           aria-label="Open menu"
         >
-          <Menu className="h-5 w-5" />
+          <Menu className="h-6 w-6" />
         </Button>
       </SheetTrigger>
 

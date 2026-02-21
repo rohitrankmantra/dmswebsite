@@ -33,7 +33,7 @@ export default function LogoMarquee() {
         </div>
 
         {/* Marquee */}
-        <div className="relative w-full overflow-hidden">
+        <div className="relative w-full overflow-hidden max-w-full">
           <motion.div
             className="flex w-max gap-10 md:gap-14"
             animate={{ x: ["0%", "-50%"] }}
