@@ -16,7 +16,7 @@ import LogoMarquee from "@/components/home/LogoMarquee"
 
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-x-hidden w-full">
       <Hero />
       <Features />
       <About />

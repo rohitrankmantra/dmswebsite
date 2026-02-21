@@ -39,7 +39,7 @@ export function Features() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   return (
-    <section className="relative -mt-20 z-20 md:pb-0 pb-12" ref={ref} id="features">
+    <section className="relative -mt-20 z-20 md:pb-0 pb-12 w-full overflow-hidden" ref={ref} id="features">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="grid gap-0 md:grid-cols-2 lg:grid-cols-4">
           {features.map((feature, index) => {
