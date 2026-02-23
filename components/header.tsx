@@ -40,8 +40,8 @@ const navLinks = [
     href: "#",
     hasSubmenu: true,
     submenu: [
-      { name: "What We Do", href: "/what-we-do", icon: ClipboardCheck },
-      { name: "Mission & Vision", href: "/mission-vision", icon: Shield },
+      { name: "What We Do", href: "#", icon: ClipboardCheck },
+      { name: "Mission & Vision", href: "#", icon: Shield },
       { name: "Team", href: "/team", icon: Monitor },
     ],
   },
@@ -51,10 +51,10 @@ const navLinks = [
     href: "#",
     hasSubmenu: true,
     submenu: [
-      { name: "Our Associates", href: "/our-associates", icon: Globe },
-      { name: "Product Offering", href: "/product-offering", icon: Server },
-      { name: "Distribution Products", href: "/distribution-products", icon: Lock },
-      { name: "Product Brochure", href: "/product-brochure", icon: FileSearch },
+      { name: "Our Associates", href: "#", icon: Globe },
+      { name: "Product Offering", href: "#", icon: Server },
+      { name: "Distribution Products", href: "#", icon: Lock },
+      { name: "Product Brochure", href: "#", icon: FileSearch },
     ],
   },
 
@@ -63,8 +63,8 @@ const navLinks = [
     href: "#",
     hasSubmenu: true,
     submenu: [
-      { name: "Awards", href: "/awards", icon: Shield },
-      { name: "Client Speaks", href: "/client-speaks", icon: Mail },
+      { name: "Awards", href: "#", icon: Shield },
+      { name: "Client Speaks", href: "#", icon: Mail },
     ],
   },
 
